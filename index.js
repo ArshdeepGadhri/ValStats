@@ -9,6 +9,7 @@ module.exports = class valorantStats extends Plugin {
             description: 'Get Valorant Stats',
             usage: '{c} [region] [name] [tag]',
             executor: async (args) => {
+                // Invalid arguements
                 if (args.length < 1){
                     return {
                         username: "Valorant Stats",
@@ -16,6 +17,7 @@ module.exports = class valorantStats extends Plugin {
                         result: `Invalid arguments. Run \`${powercord.api.commands.prefix}val {Region} {Name} {Tag}\`.`
                     };
                 }
+                // Extra Arugments most liekly usernames with spaces
                 if (args.length > 3){
                     return {
                         username: "Valorant Stats",
@@ -23,12 +25,13 @@ module.exports = class valorantStats extends Plugin {
                         result: `Replace any spaces in the username with an underscore!`
                     };
                 }
-
+                // main body
                 try {
                     const { body } = await get(`https://api.henrikdev.xyz/valorant/v1/mmr/${args[0]}/${args[1]}/${args[2]}`);
                     const rank = body.data.currenttierpatched;
 
-                    var img;
+                    // Rich embed image link
+                    var img; 
                     switch(rank){
                         case "Iron 1":
                             img = "https://static.wikia.nocookie.net/valorant/images/7/7f/TX_CompetitiveTier_Large_3.png";
@@ -93,6 +96,7 @@ module.exports = class valorantStats extends Plugin {
                         default: 
                             img = "https://static.wikia.nocookie.net/valorant/images/8/80/Valorant_ranks.png";
                     }
+                    // Rich embed to return
                     return {
                         username: "ValStats",
                         avatar_url: "https://images.squarespace-cdn.com/content/v1/604ca3ed000a5a493861d5b2/1615740688969-ERXFZMHFFU9MA8RFUWB4/VALORANT_Logo_square.png",
@@ -109,14 +113,13 @@ module.exports = class valorantStats extends Plugin {
                                 },
                             ],
                             image: {
-                                
                                 url: img,
                                 width: 75,
                                 height: 75,
                             }
                         },
                     };
-
+                // Error handling
                 } catch (err) {
                     return {
                         username: "Valorant Stats",
