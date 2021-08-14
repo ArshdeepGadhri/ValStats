@@ -25,8 +25,19 @@ module.exports = class valorantStats extends Plugin {
                         result: `Replace any spaces in the username with an underscore!`
                     };
                 }
-                
 
+                try {
+                    const { body } = await get(`https://api.henrikdev.xyz/valorant/v1/mmr/${args[0]}/${args[1]}/${args[2]}`);
+                    const rank = body.data.currenttierpatched;
+
+                    console.log(rank);
+                } catch (err) {
+                    return {
+                        username: "Valorant Stats",
+                        avatar_url: "https://www.freeiconspng.com/uploads/orange-error-icon-0.png",
+                        result: `Error: ${err.message}`
+                    };
+                }
             }
         });    
     }
