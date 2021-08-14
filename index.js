@@ -17,7 +17,7 @@ module.exports = class valorantStats extends Plugin {
                         result: `Invalid arguments. Run \`${powercord.api.commands.prefix}val {Region} {Name} {Tag}\`.`
                     };
                 }
-                // Extra Arugments most liekly usernames with spaces
+                // Extra Arugments most likely usernames with spaces
                 if (args.length > 3){
                     return {
                         username: "Valorant Stats",
@@ -104,16 +104,16 @@ module.exports = class valorantStats extends Plugin {
                             type: "rich",
                             fields: [
                                 {
-                                    name: `${stats.data.name}#${stats.data.tag}`,
+                                    name: `${stats.data.name}#${stats.data.tag}`, // username
                                     value: [
-                                        `Rank: ${rank}`,
-                                        `Elo: ${stats.data.elo}`
+                                        `Rank: ${rank}`, // rank i.e Silver 3
+                                        `Elo: ${stats.data.elo}` // elo i.e 800-900
                                     ].join("\n"),
                                     inline: false,
                                 },
                             ],
                             image: {
-                                url: img,
+                                url: img, // Rank Image 
                                 width: 75,
                                 height: 75,
                             }
