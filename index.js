@@ -93,6 +93,29 @@ module.exports = class valorantStats extends Plugin {
                         default: 
                             img = "https://static.wikia.nocookie.net/valorant/images/8/80/Valorant_ranks.png";
                     }
+                    return {
+                        username: "ValStats",
+                        avatar_url: "https://images.squarespace-cdn.com/content/v1/604ca3ed000a5a493861d5b2/1615740688969-ERXFZMHFFU9MA8RFUWB4/VALORANT_Logo_square.png",
+                        result: {
+                            type: "rich",
+                            fields: [
+                                {
+                                    name: `${stats.data.name}#${stats.data.tag}`,
+                                    value: [
+                                        `Rank: ${rank}`,
+                                        `Elo: ${stats.data.elo}`
+                                    ].join("\n"),
+                                    inline: false,
+                                },
+                            ],
+                            image: {
+                                
+                                url: img,
+                                width: 75,
+                                height: 75,
+                            }
+                        },
+                    };
 
                 } catch (err) {
                     return {
