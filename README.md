@@ -7,7 +7,7 @@ A simple Powercord plugin to retrieve Valorant player ranks
 Either paste the following link into CMD or use [PowercordPluginDownloader](https://github.com/LandenStephenss/PowercordPluginDownloader)
 
 ```cmd
-cd powercord\src\Powercord\plugins && git clone https://github.com/ArshdeepGadhri/powercordPlugin.git
+cd powercord\src\Powercord\plugins && git clone https://github.com/ArshdeepGadhri/ValStats.git
 ```
 
 ## Usage

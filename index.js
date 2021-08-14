@@ -9,8 +9,6 @@ module.exports = class valorantStats extends Plugin {
             description: 'Get Valorant Stats',
             usage: '{c} [region] [name] [tag]',
             executor: async (args) => {
-                console.log(args);
-
                 if (args.length < 1){
                     console.log(args.length);
                     return {
@@ -19,7 +17,6 @@ module.exports = class valorantStats extends Plugin {
                         result: `Invalid arguments. Run \`${powercord.api.commands.prefix}val {Region} {Name} {Tag}\`.`
                     };
                 }
-
                 if (args.length > 3){
                     console.log(args.length);
                     return {
@@ -28,7 +25,7 @@ module.exports = class valorantStats extends Plugin {
                         result: `Replace any spaces in the username with an underscore!`
                     };
                 }
-
+                
 
             }
         });    
